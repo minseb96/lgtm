@@ -1,4 +1,6 @@
 import click
+from .drawer import save_with_message
+from .image_source import get_image
 
 
 @click.command()
@@ -8,8 +10,8 @@ import click
 def cli(keyword, message):
     """LGTM 이미지 생성 도구"""
     lgtm(keyword, message)
-    click.echo('lgtm')
 
 
 def lgtm(keyword, message):
-    pass
+    with get_image(keyword) as fp:
+        save_with_message(fp, message)
