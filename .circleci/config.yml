@@ -9,7 +9,7 @@ jobs:
           key: deps-{{ checksum "requirements/base.lock" }}
       - run:
           command: |
-            pip install --user -r requirements/bae.lock
+            pip install --user -r requirements/base.lock
       - save_cache:
           key: deps-{{ checksum "requirements/base.lock" }}
           paths:
